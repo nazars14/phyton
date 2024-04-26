@@ -1,0 +1,25 @@
+class MessageHandler:
+    def __init__(self):
+        self.handlers = {'BI': 'Big',
+                         'M': 'Men',
+                         'C': 'Cat',
+                         'T': 'Bitter',
+                         'E': 'Women'}
+
+    def handle_message(self, message_class):
+        return self.handlers.get(message_class, 'Unknown message class')
+
+# Створення об'єкту обробника повідомлень
+message_handler = MessageHandler()
+
+# Виведення всіх класів та їх повідомлень
+for class_name, message in message_handler.handlers.items():
+    print(f"Клас '{class_name}': {message}")
+
+# Виклик обробника для класів "R" і "N"
+result_r = message_handler.handle_message('R')
+result_n = message_handler.handle_message('N')
+
+# Виведення результатів для класів "R" і "N"
+print("Результат для класу 'R':", result_r)
+print("Результат для класу 'N':", result_n)
