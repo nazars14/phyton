@@ -1,0 +1,239 @@
+Завдання 1
+
+def power(x):
+  return x**2 if x >= 0 else x**4
+
+
+a = float(input("Введіть перше число: "))
+b = float(input("Введіть друге число: "))
+c = float(input("Введіть третє число: "))
+
+
+# Використання функції power
+a = power(a)
+b = power(b)
+c = power(c)
+
+
+print("Перше число:", a)
+print("Друге число:", b)
+print("Третє число:", c)
+
+Завдання 2
+
+def distance(x, y):
+  return (x**2 + y**2)**0.5
+
+
+def find_closer_point(x1, y1, x2, y2):
+  d1 = distance(x1, y1)
+  d2 = distance(x2, y2)
+  if d1 < d2:
+    return "A"
+  elif d1 > d2:
+    return "B"
+  else:
+    return "A і B"
+
+
+x1, y1 = map(float, input("Введіть координати точки A (x1, y1): ").split())
+x2, y2 = map(float, input("Введіть координати точки B (x2, y2): ").split())
+
+
+result = find_closer_point(x1, y1, x2, y2)
+print(f"Точка {result} знаходиться ближче до початку координат.")
+
+Завдання 3
+
+def triangle_exists(angle1, angle2):
+  return angle1 + angle2 < 180
+
+
+def triangle_type(angle1, angle2):
+  angle3 = 180 - angle1 - angle2
+
+
+  if angle1 == 90 or angle2 == 90 or angle3 == 90:
+    return "Прямокутний"
+  elif angle1 < 90 and angle2 < 90 and angle3 < 90:
+    return "Гострокутний"
+  else:
+    return "Тупокутний"
+
+
+angle1, angle2 = map(float, input("Введіть величини двох кутів трикутника (в градусах): ").split())
+
+
+if not triangle_exists(angle1, angle2):
+  print("Трикутник з такими кутами не існує.")
+  exit()
+
+
+triangle_type = triangle_type(angle1, angle2)
+print(f"Трикутник є {triangle_type}.")
+
+Завдання 4
+
+def modify_numbers(x, y):
+    # Перевірка, чи x та y не рівні одне одному
+    if x != y:
+        # Знаходження меншого числа
+        smaller = min(x, y)
+        # Знаходження більшого числа
+        larger = max(x, y)
+        
+        # Заміна меншого числа половиною їх суми
+        smaller = (smaller + larger) / 2
+        # Заміна більшого числа його подвоєним добутком
+        larger = 2 * (x * y)
+        
+        # Повертаємо модифіковані значення
+        return smaller, larger
+    else:
+        print("Числа повинні бути різними")
+
+
+# Приклад використання функції
+x = float(input("Введіть перше число: "))
+y = float(input("Введіть друге число: "))
+
+
+modified_x, modified_y = modify_numbers(x, y)
+print("Модифіковане перше число:", modified_x)
+print("Модифіковане друге число:", modified_y)
+
+Завдання 5
+
+def determine_location(x, y):
+    if x == 0 and y == 0:
+        print("Точка знаходиться в початку координат")
+    elif x == 0:
+        print("Точка знаходиться на вісі Y")
+    elif y == 0:
+        print("Точка знаходиться на вісі X")
+    elif x > 0 and y > 0:
+        print("Точка знаходиться в першому квадранті")
+    elif x < 0 and y > 0:
+        print("Точка знаходиться в другому квадранті")
+    elif x < 0 and y < 0:
+        print("Точка знаходиться в третьому квадранті")
+    elif x > 0 and y < 0:
+        print("Точка знаходиться в четвертому квадранті")
+
+
+# Введення координат від користувача
+x = float(input("Введіть координату X: "))
+y = float(input("Введіть координату Y: "))
+
+
+# Визначення місця розташування точки
+determine_location(x, y)
+
+Завдання 6
+
+def replace_numbers(a, b):
+    if a != b:
+        # Замінити кожне число на більше із двох
+        a = b = max(a, b)
+    else:
+        # Якщо числа рівні, замінити їх нулями
+        a = b = 0
+    return a, b
+
+
+# Введення чисел користувачем
+a = int(input("Введіть ціле число a: "))
+b = int(input("Введіть ціле число b: "))
+
+
+# Виклик функції і виведення результату
+a, b = replace_numbers(a, b)
+print(f"Результат: a = {a}, b = {b}")
+
+Завдання 7
+
+def count_negative_numbers(a, b, c):
+    count = 0
+    # Перевіряємо кожне число
+    if a < 0:
+        count += 1
+    if b < 0:
+        count += 1
+    if c < 0:
+        count += 1
+    return count
+
+
+# Введення чисел користувачем
+a = int(input("Введіть ціле число a: "))
+b = int(input("Введіть ціле число b: "))
+c = int(input("Введіть ціле число c: "))
+
+
+# Виклик функції та виведення результату
+negative_count = count_negative_numbers(a, b, c)
+print(f"Кількість негативних чисел серед введених: {negative_count}")
+
+Завдання 8
+
+def count_positive_numbers(a, b, c):
+    count = 0
+    # Перевіряємо кожне число на додатність
+    if a > 0:
+        count += 1
+    if b > 0:
+        count += 1
+    if c > 0:
+        count += 1
+    return count
+
+
+# Введення чисел користувачем
+a = int(input("Введіть ціле число a: "))
+b = int(input("Введіть ціле число b: "))
+c = int(input("Введіть ціле число c: "))
+
+
+# Виклик функції та виведення результату
+positive_count = count_positive_numbers(a, b, c)
+print(f"Кількість додатних чисел серед введених: {positive_count}")
+
+Завдання 9
+
+def count_integers(a, b, c):
+    count = 0
+    # Перевіряємо кожне число на цілість
+    for number in [a, b, c]:
+        if number.is_integer():
+            count += 1
+    return count
+
+
+# Введення чисел користувачем
+a = float(input("Введіть число a: "))
+b = float(input("Введіть число b: "))
+c = float(input("Введіть число c: "))
+
+
+# Виклик функції та виведення результату
+integer_count = count_integers(a, b, c)
+print(f"Кількість цілих чисел серед введених: {integer_count}")
+
+Завдання 10
+
+def is_divisor(a, b, c, k):
+    return a % k == 0 and b % k == 0 and c % k == 0
+
+
+# Введення чисел користувачем
+a = int(input("Введіть ціле число a: "))
+b = int(input("Введіть ціле число b: "))
+c = int(input("Введіть ціле число c: "))
+k = int(input("Введіть ціле число k: "))
+
+
+# Перевірка, чи є k дільником a, b, c
+if is_divisor(a, b, c, k):
+    print(f"{k} є дільником чисел {a}, {b} і {c}")
+else:
+    print(f"{k} не є дільником чисел {a}, {b} і {c}")
