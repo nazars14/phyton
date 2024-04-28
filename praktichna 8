@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Генеруємо дані для кутів у радіанах
+x = np.linspace(0, 2*np.pi, 100)
+y1 = np.cos(x)
+y2 = np.sin(x)
+
+# Створюємо графік
+plt.figure(figsize=(8, 6))
+plt.plot(x, y1, label='cos(x)')
+plt.plot(x, y2, label='sin(x)')
+plt.xlabel('Кут у радіанах')
+plt.ylabel('Значення')
+plt.title('Графік косинуса та синуса')
+plt.legend()
+plt.grid(True)
+plt.show()
